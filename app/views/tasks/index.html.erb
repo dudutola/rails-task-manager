@@ -1,0 +1,9 @@
+<h1>My tasks</h1>
+
+<ul class="list-unstyled">
+  <% @tasks.each do |task| %>
+    <li>
+      <%= task.title %>
+    </li>
+  <% end %>
+</ul>
