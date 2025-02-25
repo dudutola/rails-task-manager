@@ -1,6 +1,6 @@
 <h1><%= @task.title %></h1>
 
-<p><%= @task.details %></p>
+<p class="bg-light p-3 border border-dark-subtle rounded"><%= @task.details %></p>
 
 <div class="d-flex">
   <%= form_with model: @task, local: true do |f| %>
@@ -9,9 +9,9 @@
   <% end %>
 
   <% if @task.completed %>
-    <p>This task is completed</p>
+    <p class="px-2">This task is completed</p>
   <% else %>
-    <p>This task is not completed yet</p>
+    <p class="px-2">This task is not completed yet</p>
   <% end %>
 </div>
 

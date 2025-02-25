@@ -2,17 +2,20 @@
 
 <ul class="list-unstyled">
   <% @tasks.each do |task| %>
-    <li>
+    <li class="d-flex gap-2">
       <%= form_with model: task, local: true do |f| %>
         <%= f.check_box :completed %>
       <% end %>
       <%= link_to task.title, task_path(task.id) %>
-       <%= link_to "🗑️", task_path(task),
+      <span>.</span>
+      <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, task_path(task),
                         data: {turbo_method: :delete,
                         turbo_confirm: "Are you sure?"}
       %>
     </li>
   <% end %>
 </ul>
+
+<hr class="custom-line">
 
 <%= link_to "+ Add a new task", new_task_path %>
