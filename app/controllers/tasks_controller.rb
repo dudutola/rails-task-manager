@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [ :show ]
+  before_action :set_task, only: [ :show, :edit, :update, :mark_as_completed ]
 
   def index
     @tasks = Task.all
@@ -19,6 +19,21 @@ class TasksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit; end
+
+  def update
+    if @task.update(task_params)
+      redirect_to @task
+    else
+      render :edit
+    end
+  end
+
+  def mark_as_completed
+    @task.update(completed: !@task.completed)
+    redirect_to @task
   end
 
   private

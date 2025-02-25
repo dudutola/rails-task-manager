@@ -3,6 +3,9 @@
 <ul class="list-unstyled">
   <% @tasks.each do |task| %>
     <li>
+      <%= form_with model: task, local: true do |f| %>
+        <%= f.check_box :completed %>
+      <% end %>
       <%= link_to task.title, task_path(task.id) %>
     </li>
   <% end %>
