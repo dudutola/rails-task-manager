@@ -7,6 +7,10 @@
         <%= f.check_box :completed %>
       <% end %>
       <%= link_to task.title, task_path(task.id) %>
+       <%= link_to "🗑️", task_path(task),
+                        data: {turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"}
+      %>
     </li>
   <% end %>
 </ul>
